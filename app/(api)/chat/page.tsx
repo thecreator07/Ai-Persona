@@ -70,6 +70,9 @@ export default function ChatPage() {
     }
   }, [messages]);
 
+  useEffect(() => {
+    setMessages([]);
+  }, [persona]);
   return (
     <AuroraBackground className="">
       <motion.div
@@ -80,7 +83,7 @@ export default function ChatPage() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-          className="relative flex flex-col gap-4 items-center justify-center px-4 overflow-y-auto hide-scrollbar"
+        className="relative flex flex-col gap-4 items-center justify-center px-4 overflow-y-auto hide-scrollbar"
       >
         <div className="max-w-2xl h-full mx-auto p-6">
           <h1 className="text-3xl font-bold mb-4 text-center">Persona AI</h1>
