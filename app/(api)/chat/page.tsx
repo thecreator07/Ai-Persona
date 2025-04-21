@@ -73,7 +73,7 @@ export default function ChatPage() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4"
+        className="relative flex flex-col gap-4 items-center justify-center px-4 "
       >
         <div className="max-w-2xl mx-auto p-6">
           <h1 className="text-3xl font-bold mb-4 text-center">Persona AI</h1>
