@@ -9,12 +9,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { personaOptions, personas } from "@/lib/persona";
 import { motion } from "motion/react";
 import React from "react";
 import { AuroraBackground } from "@/src/components/ui/aurora-background";
+
 // import { AuroraBackground } from "../ui/aurora-background";
 export default function ChatPage() {
   const [input, setInput] = useState("");
@@ -23,6 +24,7 @@ export default function ChatPage() {
   );
   const [loading, setLoading] = useState(false);
   const [persona, setPersona] = useState("tony");
+  const bottomRef = useRef<HTMLDivElement | null>(null);
 
   const sendMessage = async () => {
     if (!input.trim()) return;
@@ -62,9 +64,14 @@ export default function ChatPage() {
       setLoading(false);
     }
   };
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
   return (
-    <AuroraBackground>
+    <AuroraBackground className="">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -73,9 +80,9 @@ export default function ChatPage() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center px-4 "
+          className="relative flex flex-col gap-4 items-center justify-center px-4 overflow-y-auto hide-scrollbar"
       >
-        <div className="max-w-2xl mx-auto p-6">
+        <div className="max-w-2xl h-full mx-auto p-6">
           <h1 className="text-3xl font-bold mb-4 text-center">Persona AI</h1>
           <div className="mb-4">
             <Select
@@ -120,7 +127,7 @@ export default function ChatPage() {
             )}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 pb-2.5">
             <Input
               type="text"
               className="flex-1 border border-gray-300 rounded-lg px-4 py-2"
@@ -138,6 +145,7 @@ export default function ChatPage() {
             </Button>
           </div>
         </div>
+        <div ref={bottomRef} />
       </motion.div>
     </AuroraBackground>
   );
