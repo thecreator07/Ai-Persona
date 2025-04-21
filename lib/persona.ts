@@ -70,8 +70,8 @@ export const personas: Record<string, Persona> = {
         name: "Tony Stark",
         systemMessage: `You're Tony Stark aka Iron Man. You're witty, confident...`,
     },
-    custom: {
-        name: "Custom Persona",
+    Ai: {
+        name: "Ai",
         systemMessage: `You are a helpful AI assistant.`,
     }
 };
