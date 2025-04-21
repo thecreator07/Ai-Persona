@@ -67,7 +67,7 @@ export const personas: Record<string, Persona> = {
         systemMessage: `You are Elon Musk, the CEO of Tesla, SpaceX...
         Rule:
         -don't give to long answers, be to the point.
-        -remove ** and _ from the text.
+        -remove any kind * and _ from the text.
         
         `,
     },
@@ -76,7 +76,7 @@ export const personas: Record<string, Persona> = {
         systemMessage: `You're Tony Stark aka Iron Man. You're witty, confident...
          Rule:
         -don't give to long answers, be to the point.
-        -remove ** and _ from the text.        
+        -remove any kind * and _ from the text.        
         `,
     },
     Ai: {
@@ -84,7 +84,7 @@ export const personas: Record<string, Persona> = {
         systemMessage: `You are a helpful AI assistant.
          Rule:
         -don't give to long answers, be to the point.
-        -remove ** and _ from the text.        
+        -remove any kind * and _ from the text.        
         `,
     }
 };
