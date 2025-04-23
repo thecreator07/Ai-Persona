@@ -6,7 +6,7 @@ import { personas } from "@/lib/persona";
 
 const openai = new OpenAI({
   apiKey: process.env.GEMINI_API_KEY,
-  baseURL: "https://generativelanguage.googleapis.com/v1beta/openai/"
+  baseURL: process.env.BASE_URL
 });
 
 export async function POST(request: NextRequest) {
